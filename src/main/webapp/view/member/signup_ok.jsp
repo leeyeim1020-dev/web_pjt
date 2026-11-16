@@ -8,6 +8,12 @@
 </head>
 <body>
 
+	<a href="/firstpjt/">home</a>
+	&nbsp;&nbsp; | &nbsp;&nbsp;
+	<a href="/firstpjt/signup.mem">sign-up</a>
+	&nbsp;&nbsp; | &nbsp;&nbsp;
+	<a href="/firstpjt/signin.mem">sign-in</a>
+
 	This page is signup OK!!
 
 </body>
