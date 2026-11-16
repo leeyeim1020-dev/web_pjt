@@ -1,4 +1,4 @@
-package com.office.ex;
+package com.office.ex.member;
 
 public class MemberDto {
 

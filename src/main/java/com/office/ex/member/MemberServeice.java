@@ -1,7 +1,10 @@
-package com.office.ex;
+package com.office.ex.member;
+
+import com.office.ex.Config;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class MemberServeice {
 	
@@ -22,9 +25,8 @@ public class MemberServeice {
 		
 		MemberDto memberDto = new MemberDto(memId, memPw, memMail, memPhone);
 		
-		int result = memberDao.insertNewMember(memberDto);		
+		return memberDao.insertNewMember(memberDto);		
 		
-		return result;
 	}
 
 	public int signinConfirm(HttpServletRequest request, HttpServletResponse response) {
@@ -33,19 +35,28 @@ public class MemberServeice {
 		String mamPw = request.getParameter("memPw");
 		
 		MemberDto selectedMemberDto = memberDao.selectMemberByMemIdAndMemPw(mamId);
-		/*
-		if (selectedMemberDto != null && selectedMemberDto.getMemPw().equals(mamPw)) {
-			return SIGN_IN_OK;
-	
-		} else {
-			return SIGN_IN_NG;
-		}
-		*/
 		
-		if (selectedMemberDto != null && selectedMemberDto.getMemPw().equals(mamPw))
+		if (selectedMemberDto != null && selectedMemberDto.getMemPw().equals(mamPw)) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute(Config.SIGNINED_MEMBER_ID, selectedMemberDto.getMemId());
+			session.setMaxInactiveInterval(60 * 30);
+			
+			
 			return SIGN_IN_OK;
+		}
+			
 		
 		return SIGN_IN_NG;
+	}
+
+	public void signoutConfirm(HttpServletRequest request, HttpServletResponse response) {
+		
+		HttpSession session = request.getSession();
+//		session.removeAttribute(Config.SIGNINED_MEMBER_ID);
+		
+		session.invalidate();
+		
 	}
 
 }

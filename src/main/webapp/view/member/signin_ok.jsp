@@ -4,15 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<jsp:include page="../include/title.jsp"/>
 </head>
 <body>
 
-	<a href="/firstpjt/">home</a>
-	&nbsp;&nbsp; | &nbsp;&nbsp;
-	<a href="/firstpjt/signup.mem">sign-up</a>
-	&nbsp;&nbsp; | &nbsp;&nbsp;
-	<a href="/firstpjt/signin.mem">sign-in</a>
+	<jsp:include page="../include/nav.jsp" />
 
 	<br><br>
 	This page is signin OK!!
