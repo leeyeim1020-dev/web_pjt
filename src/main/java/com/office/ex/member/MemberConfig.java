@@ -2,7 +2,7 @@ package com.office.ex.member;
 
 public class MemberConfig {
 
-	final public static String MEMBER_SIGNOUT			= "/signout.mem";
+	final public static String MEMBER_SIGNOUT_CONFIRM		= "/signout.mem";
 	final public static String MEMBER_SIGNUP 			= "/signup.mem";
 	final public static String MEMBER_SIGNUP_CONFIRM 	= "/signup_confirm.mem";
 	final public static String MEMBER_SIGNIN 			= "/signin.mem";

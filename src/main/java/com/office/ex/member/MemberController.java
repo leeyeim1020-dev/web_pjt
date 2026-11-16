@@ -70,7 +70,7 @@ public class MemberController extends HttpServlet {
 			break;
 			
 			
-		case MemberConfig.MEMBER_SIGNOUT:
+		case MemberConfig.MEMBER_SIGNOUT_CONFIRM:
 			
 			memberServeice.signoutConfirm(request, response);
 			
